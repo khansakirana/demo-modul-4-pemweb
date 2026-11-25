@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+// Pengujian endpoint — happy path & failure path (Postman)
 class FlipPlayApiTest extends TestCase
 {
     use RefreshDatabase;

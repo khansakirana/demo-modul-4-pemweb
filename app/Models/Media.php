@@ -31,7 +31,7 @@ class Media extends Model
     /**
      * Format ringkasan detail media sesuai konsep FlipPlay (Anime & Drama).
      */
-    // [PENANDA ACCESSOR] Format detail Anime/Drama sesuai Modul 3
+    // Accessor format detail Anime/Drama (Modul 3)
     protected function details(): Attribute
     {
         return Attribute::make(
@@ -48,7 +48,7 @@ class Media extends Model
     /**
      * Query scope untuk mencari media berdasarkan judul.
      */
-    // [PENANDA QUERY SCOPE] Filter pencarian judul ?title=
+    // Query scope pencarian judul (?title=)
     public function scopeSearchTitle(Builder $query, ?string $keyword): Builder
     {
         if ($keyword !== null && $keyword !== '') {
@@ -73,7 +73,7 @@ class Media extends Model
     /**
      * Relasi many-to-many: satu Media dapat dikoleksi oleh banyak User.
      */
-    // [PENANDA RELASI belongsToMany - MEDIA -> USERS]
+    // Eloquent Relationship (migration, relasi antar entitas, eager loading)
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class)->withTimestamps();

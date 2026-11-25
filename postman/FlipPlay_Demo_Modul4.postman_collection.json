@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "Demo Modul 4 - FlipPlay",
-		"description": "Collection REST API FlipPlay (Modul 4 Pemrograman Web - Laravel 12)",
+		"description": "Pengujian endpoint — happy path & failure path (Postman) - Collection REST API FlipPlay (Modul 4 Pemrograman Web - Laravel 12)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [

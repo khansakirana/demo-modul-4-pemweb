@@ -6,7 +6,7 @@ use App\Models\Media;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-// [PENANDA VALIDASI MEDIA - 422] Membedakan aturan POST (required) & PATCH (sometimes)
+// Form Request Validation & penanganan error 422
 class StoreMediaRequest extends FormRequest
 {
     public function authorize(): bool

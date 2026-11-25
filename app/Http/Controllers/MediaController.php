@@ -7,13 +7,13 @@ use App\Http\Resources\MediaResource;
 use App\Models\Media;
 use Illuminate\Http\Request;
 
-// [PENANDA CRUD MEDIA] Controller CRUD lengkap (index, show, store, update, destroy)
+// CRUD API lengkap (index, show, store, update, destroy) dengan status code tepat
 class MediaController extends Controller
 {
     /**
      * Menampilkan seluruh media dengan dukungan filter judul dan jenis media.
      */
-    // [PENANDA CRUD - READ ALL] + [PENANDA EAGER LOADING with('users')] + Filter ?title=
+    // Eager loading: with('users')
     public function index(Request $request)
     {
         $media = Media::with('users')
@@ -27,7 +27,7 @@ class MediaController extends Controller
     /**
      * Menampilkan detail satu media beserta pengguna yang mengoleksinya.
      */
-    // [PENANDA CRUD - READ DETAIL] Route Model Binding (404 otomatis) + load('users')
+    // Route Model Binding (404 otomatis) + load('users')
     public function show(Media $media)
     {
         return new MediaResource($media->load('users'));
@@ -36,7 +36,7 @@ class MediaController extends Controller
     /**
      * Menambahkan media baru ke dalam sistem.
      */
-    // [PENANDA CRUD - CREATE] Pakai StoreMediaRequest + status code 201 Created
+    // Status code 201 Created
     public function store(StoreMediaRequest $request)
     {
         $data = $request->validated();
@@ -52,7 +52,7 @@ class MediaController extends Controller
     /**
      * Memperbarui data media berdasarkan ID.
      */
-    // [PENANDA CRUD - UPDATE] PATCH dengan validasi sometimes di StoreMediaRequest
+    // Update data media (PATCH)
     public function update(StoreMediaRequest $request, Media $media)
     {
         $data = $request->validated();
@@ -68,7 +68,7 @@ class MediaController extends Controller
     /**
      * Menghapus media dari sistem.
      */
-    // [PENANDA CRUD - DELETE] Hapus media dari database
+    // Hapus media (DELETE)
     public function destroy(Media $media)
     {
         $media->delete();

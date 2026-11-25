@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-// [PENANDA VALIDASI CUSTOM ACTION - 422] Cek media_id wajib ada di tabel media
+// Form Request Validation & penanganan error 422
 class AddToCollectionRequest extends FormRequest
 {
     public function authorize(): bool

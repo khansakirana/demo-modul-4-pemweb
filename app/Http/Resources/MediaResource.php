@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-// [PENANDA API RESOURCE MEDIA] Konsistensi format JSON + whenLoaded('users')
+// API Resource (format response konsisten, termasuk whenLoaded)
 class MediaResource extends JsonResource
 {
     public function toArray(Request $request): array
@@ -19,7 +19,7 @@ class MediaResource extends JsonResource
             'episodes' => $this->episodes,
             'country' => $this->country,
             'details' => $this->details,
-            // [PENANDA whenLoaded('users')] Hanya tampil jika relasi users sudah di-load
+            // whenLoaded('users')
             'users' => $this->whenLoaded('users', function () {
                 return $this->users->map(fn ($user) => [
                     'id' => $user->id,
