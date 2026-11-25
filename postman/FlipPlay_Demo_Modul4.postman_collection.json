@@ -1,0 +1,442 @@
+{
+	"info": {
+		"name": "Demo Modul 4 - FlipPlay",
+		"description": "Collection REST API FlipPlay (Modul 4 Pemrograman Web - Laravel 12)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Media (CRUD & Search)",
+			"item": [
+				{
+					"name": "1.1 Get All Media",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media"]
+						}
+					}
+				},
+				{
+					"name": "1.2 Search Media by Title",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media?title=Frieren",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media"],
+							"query": [
+								{
+									"key": "title",
+									"value": "Frieren"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "1.3 Get Detail Media (+ Users)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media/1",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media", "1"]
+						}
+					}
+				},
+				{
+					"name": "1.4 Create Anime (POST)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Solo Leveling\",\n    \"type\": \"anime\",\n    \"genre\": \"Action\",\n    \"year\": 2024,\n    \"episodes\": 12\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media"]
+						}
+					}
+				},
+				{
+					"name": "1.5 Create Drama (POST)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lovely Runner\",\n    \"type\": \"drama\",\n    \"genre\": \"Romance\",\n    \"year\": 2024,\n    \"episodes\": 16,\n    \"country\": \"Korea Selatan\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media"]
+						}
+					}
+				},
+				{
+					"name": "1.6 Update Media (PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"episodes\": 24\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media/5",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media", "5"]
+						}
+					}
+				},
+				{
+					"name": "1.7 Delete Media (DELETE)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media/5",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media", "5"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "2. User & Collection (Custom Action)",
+			"item": [
+				{
+					"name": "2.1 Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "users"]
+						}
+					}
+				},
+				{
+					"name": "2.2 Get Detail User + Collection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "users", "1"]
+						}
+					}
+				},
+				{
+					"name": "2.3 Get User Collection Only",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1/collection",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "users", "1", "collection"]
+						}
+					}
+				},
+				{
+					"name": "2.4 Add Media to Collection (POST)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"media_id\": 2\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1/collection",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "users", "1", "collection"]
+						}
+					}
+				},
+				{
+					"name": "2.5 Remove Media from Collection (DELETE)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1/collection/2",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "users", "1", "collection", "2"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "3. Pengujian Error (Failure Path)",
+			"item": [
+				{
+					"name": "3.1 Create Media - Judul Kosong (422)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"\",\n    \"type\": \"anime\",\n    \"genre\": \"Action\",\n    \"year\": 2024,\n    \"episodes\": 12\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media"]
+						}
+					}
+				},
+				{
+					"name": "3.2 Create Media - Judul Duplikat (422)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Frieren: Beyond Journey End\",\n    \"type\": \"anime\",\n    \"genre\": \"Fantasy\",\n    \"year\": 2023,\n    \"episodes\": 28\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media"]
+						}
+					}
+				},
+				{
+					"name": "3.3 Create Drama - Tanpa Negara (422)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Vincenzo\",\n    \"type\": \"drama\",\n    \"genre\": \"Crime\",\n    \"year\": 2021,\n    \"episodes\": 20\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media"]
+						}
+					}
+				},
+				{
+					"name": "3.4 Add Collection - Duplikat (409)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"media_id\": 1\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1/collection",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "users", "1", "collection"]
+						}
+					}
+				},
+				{
+					"name": "3.5 Get Media Tidak Ada (404)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/media/999",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["api", "media", "999"]
+						}
+					}
+				}
+			]
+		}
+	]
+}
