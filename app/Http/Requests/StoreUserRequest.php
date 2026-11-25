@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
+// [PENANDA VALIDASI USER - 422]
 class StoreUserRequest extends FormRequest
 {
     public function authorize(): bool

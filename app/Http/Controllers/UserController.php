@@ -9,11 +9,13 @@ use App\Http\Resources\UserResource;
 use App\Models\Media;
 use App\Models\User;
 
+// [PENANDA CRUD USER & CUSTOM ACTION]
 class UserController extends Controller
 {
     /**
      * Menampilkan daftar seluruh pengguna beserta koleksi medianya.
      */
+    // [PENANDA EAGER LOADING User] with('media')
     public function index()
     {
         $users = User::with('media')->paginate(10);
@@ -70,6 +72,7 @@ class UserController extends Controller
     /**
      * Menambahkan media ke dalam koleksi pribadi pengguna (custom action).
      */
+    // [PENANDA CUSTOM ACTION - ATTACH & CEK DUPLIKAT 409]
     public function addToCollection(AddToCollectionRequest $request, User $user)
     {
         $mediaId = $request->validated()['media_id'];
@@ -91,6 +94,7 @@ class UserController extends Controller
     /**
      * Menghapus media dari koleksi pribadi pengguna (custom action).
      */
+    // [PENANDA CUSTOM ACTION - DETACH]
     public function removeFromCollection(User $user, Media $media)
     {
         if (! $user->media()->where('media_id', $media->id)->exists()) {

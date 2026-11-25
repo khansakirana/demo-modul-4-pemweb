@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // [PENANDA MIGRATION PIVOT TABLE] Relasi many-to-many Media <-> User
         Schema::create('media_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('media_id')->constrained('media')->cascadeOnDelete();

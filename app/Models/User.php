@@ -51,6 +51,7 @@ class User extends Authenticatable
     /**
      * Relasi many-to-many: satu User dapat mengoleksi banyak Media.
      */
+    // [PENANDA RELASI belongsToMany - USER -> MEDIA]
     public function media(): BelongsToMany
     {
         return $this->belongsToMany(Media::class)->withTimestamps();

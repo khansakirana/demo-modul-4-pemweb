@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // [PENANDA MIGRATION TABEL MEDIA]
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
