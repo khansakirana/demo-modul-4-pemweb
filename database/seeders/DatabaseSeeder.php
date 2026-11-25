@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $dhea = User::create([
-            'name' => 'Dhea',
-            'email' => 'dhea@flipplay.test',
+        $khansa = User::create([
+            'name' => 'khansa',
+            'email' => 'khansa@flipplay.test',
             'password' => 'password',
         ]);
 
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'country' => 'Korea Selatan',
         ]);
 
-        // Contoh koleksi awal milik Dhea
-        $dhea->media()->attach([$frieren->id, $queenOfTears->id]);
+        // Contoh koleksi awal milik khansa
+        $khansa->media()->attach([$frieren->id, $queenOfTears->id]);
     }
 }

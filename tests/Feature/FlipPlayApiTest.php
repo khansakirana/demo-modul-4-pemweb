@@ -146,7 +146,7 @@ class FlipPlayApiTest extends TestCase
 
     public function test_user_collection_attach_duplicate_show_and_detach_flow(): void
     {
-        $user = User::factory()->create(['name' => 'Dhea']);
+        $user = User::factory()->create(['name' => 'khansa']);
         $media = Media::create([
             'title' => 'Frieren: Beyond Journey End',
             'type' => 'anime',
@@ -176,7 +176,7 @@ class FlipPlayApiTest extends TestCase
         // Show user with collection (whenLoaded)
         $this->getJson("/api/users/{$user->id}")
             ->assertStatus(200)
-            ->assertJsonPath('data.name', 'Dhea')
+            ->assertJsonPath('data.name', 'khansa')
             ->assertJsonCount(1, 'data.media');
 
         // Dedicated collection endpoint
@@ -188,7 +188,7 @@ class FlipPlayApiTest extends TestCase
         $this->getJson("/api/media/{$media->id}")
             ->assertStatus(200)
             ->assertJsonCount(1, 'data.users')
-            ->assertJsonPath('data.users.0.name', 'Dhea');
+            ->assertJsonPath('data.users.0.name', 'khansa');
 
         // Happy path: detach media from collection
         $this->deleteJson("/api/users/{$user->id}/collection/{$media->id}")
